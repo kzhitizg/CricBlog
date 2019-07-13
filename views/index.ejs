@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+<div class="ui items text container segment">
+    <% for(let i=0; i<blogs.length; i++){
+        if (i!=0){%>
+        <div class="ui divider"></div>
+        <% }%>
+    <div class="item">
+        <div class="image">
+            <img src="<%= blogs[i].image%>">
+        </div>
+        <div class="content">
+            <a class="header"><%= blogs[i].title%></a>
+        <div class="meta">
+            <span class="date">Date: <%= blogs[i].created%></span>
+        </div>
+        <div class="description">
+            <p>
+                <%= blogs[i].body.slice(0, 150)+"..."%>
+            </p>
+        </div>
+        <div class="extra">
+            <a class="ui primary button inverted blue" href="/blogs/<%= blogs[i].id%>">
+                Read More
+            </a>
+        </div>
+        </div>
+    </div>
+    <% } %>
+</div>
+<% include partials/footer %>
